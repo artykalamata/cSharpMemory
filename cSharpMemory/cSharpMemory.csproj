@@ -44,6 +44,8 @@
     <Compile Include="Helper\ProcessFinder.cs" />
     <Compile Include="Memory\Memory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Windows\Enums.cs" />
+    <Compile Include="Windows\NativeFunctions.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
