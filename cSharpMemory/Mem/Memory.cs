@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace cSharpMemory.Memory
+namespace cSharpMemory.Mem
 {
-    class Memory
+    public class Memory
     {
         public static byte[] ReadBytes(IntPtr processHandle, IntPtr address, int size)
         {
