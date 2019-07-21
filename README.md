@@ -1,2 +1,2 @@
 # cSharpMemory
-There will soon be a x64 c# memory library here.
+There will soon be a 64-bit c# memory library here.
