@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace cSharpMemory.Windows
+namespace cSharpMemoryLib.Windows
 {
     [Flags]
     public enum ProcessAccessFlags : uint

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace cSharpMemory.Windows
+namespace cSharpMemoryLib.Windows
 {
     class NativeFunctions
     {

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29025.244
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cSharpMemory", "cSharpMemory\cSharpMemory.csproj", "{78DA2AF0-0DD1-4ECD-948E-DECF03C320D7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "cSharpMemoryLib", "cSharpMemory\cSharpMemoryLib.csproj", "{78DA2AF0-0DD1-4ECD-948E-DECF03C320D7}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MemConsole", "MemConsole\MemConsole.csproj", "{47307764-C174-4669-A2CA-0E4A1379A856}"
 EndProject

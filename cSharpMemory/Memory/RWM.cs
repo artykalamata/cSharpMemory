@@ -1,11 +1,11 @@
 ﻿using System;
 using System.ComponentModel;
 using System.Runtime.InteropServices;
-using cSharpMemory.Windows;
+using cSharpMemoryLib.Windows;
 
-namespace cSharpMemory.Mem
+namespace cSharpMemoryLib.Memory
 {
-    public class Memory
+    public class RWM
     {
         public static byte[] ReadBytes(IntPtr processHandle, IntPtr address, int size)
         {

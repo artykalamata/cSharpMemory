@@ -46,8 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\ProcessFinder.cs" />
-    <Compile Include="cSharpMemoryMain.cs" />
-    <Compile Include="Mem\Memory.cs" />
+    <Compile Include="cSharpMemory.cs" />
+    <Compile Include="Memory\RWM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Windows\Enums.cs" />
     <Compile Include="Windows\NativeFunctions.cs" />

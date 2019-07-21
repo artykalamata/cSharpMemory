@@ -2,7 +2,7 @@
 using System.Diagnostics;
 using System.Linq;
 
-namespace cSharpMemory.Helper
+namespace cSharpMemoryLib.Helper
 {
     public class ProcessFinder
     {
