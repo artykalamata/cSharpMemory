@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using cSharpMemory.Windows;
 using cSharpMemory.Mem;
+using System.Text;
 
 namespace cSharpMemory
 {
@@ -14,6 +15,18 @@ namespace cSharpMemory
         {
             this.process = process;
             this.processHandle = NativeFunctions.OpenProcess(ProcessAccessFlags.All, false, process.Id);
+        }
+
+        #region Read
+
+        public byte ReadByte(IntPtr address)
+        {
+            return Memory.ReadBytes(processHandle, address, 1)[0];
+        }
+
+        public byte[] ReadByteArray(IntPtr address, int size)
+        {
+            return Memory.ReadBytes(processHandle, address, size);
         }
 
         public Int16 ReadInt16(IntPtr address)
@@ -51,24 +64,65 @@ namespace cSharpMemory
             return BitConverter.ToChar(Memory.ReadBytes(processHandle, address, sizeof(Char)), 0);
         }
 
-        public String ReadUnicode(IntPtr address, int length)
-        {
-            return System.Text.Encoding.Unicode.GetString(Memory.ReadBytes(processHandle, address, sizeof(Char) * length), 0, length);
-        }
-
         public String ReadASCII(IntPtr address, int length)
         {
             return System.Text.Encoding.ASCII.GetString(Memory.ReadBytes(processHandle, address, sizeof(Char) * length), 0, length);
         }
 
-        public byte ReadByte(IntPtr address)
+        #endregion
+
+        #region Write
+
+        public void WriteByte(IntPtr address, byte value)
         {
-            return Memory.ReadBytes(processHandle, address, 1)[0];
+            Memory.WriteBytes(processHandle, address, new byte[] { value });
         }
 
-        public byte[] ReadByteArray(IntPtr address, int size)
+        public void WriteByteArray(IntPtr address, byte[] array)
         {
-            return Memory.ReadBytes(processHandle, address, size);
+            Memory.WriteBytes(processHandle, address, array);
         }
+
+        public void WriteInt16(IntPtr address, Int16 value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteInt32(IntPtr address, Int32 value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteInt64(IntPtr address, Int64 value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteSingle(IntPtr address, Single value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteDouble(IntPtr address, Double value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteBoolean(IntPtr address, Boolean value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteChar(IntPtr address, Char value)
+        {
+            Memory.WriteBytes(processHandle, address, BitConverter.GetBytes(value));
+        }
+
+        public void WriteASCII(IntPtr address, string value)
+        {
+            Memory.WriteBytes(processHandle, address, Encoding.ASCII.GetBytes(value));
+        }
+
+        #endregion
     }
 }

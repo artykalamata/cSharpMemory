@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using cSharpMemory.Windows;
 
 namespace cSharpMemory.Mem
 {
@@ -14,8 +11,17 @@ namespace cSharpMemory.Mem
         {
             IntPtr bytesRead = IntPtr.Zero;
             byte[] buffer = new byte[size];
-            if(Windows.NativeFunctions.ReadProcessMemory(processHandle, address, buffer, buffer.Length, out bytesRead) && size == bytesRead.ToInt64())
+            if(NativeFunctions.ReadProcessMemory(processHandle, address, buffer, buffer.Length, out bytesRead) && size == bytesRead.ToInt64())
                 return buffer;
+
+            throw new Win32Exception(Marshal.GetLastWin32Error());
+        }
+
+        public static void WriteBytes(IntPtr processHandle, IntPtr address, byte[] buffer)
+        {
+            IntPtr bytesWritten = IntPtr.Zero;
+            if (NativeFunctions.WriteProcessMemory(processHandle, address, buffer, buffer.Length, out bytesWritten) && buffer.Length == bytesWritten.ToInt64())
+                return;
 
             throw new Win32Exception(Marshal.GetLastWin32Error());
         }

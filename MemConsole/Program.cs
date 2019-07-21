@@ -15,12 +15,13 @@ namespace MemConsole
         static void Main(string[] args)
         {
             var cSharpMem = new cSharpMemoryMain(ProcessFinder.GetProcessByName("portal_knights_x64"));
+            IntPtr address = new IntPtr(0x17FC1B8CBE0);
 
-            string testvar = cSharpMem.ReadASCII(new IntPtr(0x1B552CD4D99), 13);
-
-
-            Console.WriteLine("Read: " + testvar);
+            cSharpMem.WriteASCII(address, "Hello");
             Console.ReadLine();
+
+
+
         }
     }
 }
